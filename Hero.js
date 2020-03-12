@@ -8,7 +8,8 @@ class Hero extends Person {
         <div id="heroImg">
             <img src="images/hero.gif"/>
         </div>
-        <div class ="info">Name: ${Hero.name} Health: ${Person.health} Weapon:${Person.weapon}</div>
+        <div class ="info">Name: ${this.name} Health: ${this.health} Weapon:${this.weapon.name}</div>  
         `
+        // Hero info not being rendered correctly.  Solved by changing Hero.name to this.name, etc.
     }
 }

@@ -1,6 +1,6 @@
 class Weapon {
     constructor(name) {
-        this.name = "name";
-        this.damage = Math.floor((Math.random() *20) + 10)
+        this.name = name;
+        this.damage = Math.floor((Math.random() *10) + 10)  //initial damage range set too high - fixed.
     }
 }

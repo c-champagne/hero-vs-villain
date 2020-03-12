@@ -15,7 +15,7 @@ class Person {
     }
 
     attack(person) {
-        //person.health -= randomdamage
+        person.health = person.health - this.weapon.damage;
     }
 
 }

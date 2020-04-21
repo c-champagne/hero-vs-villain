@@ -68,3 +68,8 @@ villainAttack.addEventListener("click", function() {
         document.getElementById("playerHealth").innerHTML=`<h3>Health: Defeated! </h3>`;
     }
 })
+
+function darkMode() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+}

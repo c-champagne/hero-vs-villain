@@ -1,17 +1,19 @@
 //document.addEventListener('DOMContentLoaded', function() {
     let heroName = prompt("Enter hero name:", "Hero");
+    let heroWeapon = prompt("Enter hero weapon:", "Sword");
     let villName = prompt("Enter villain name:", "Villain");
+    let villWeapon = prompt("Enter villain weapon:", "Sword");
     //Hero.name = heroName;
     //Villain.name = villName;
 
     let player = new Hero(heroName);
-    player.equipWeapon(new Weapon("Sword"));
+    player.equipWeapon(new Weapon(heroWeapon));
     
     let heroContainer = document.getElementById("heroContainer");
     heroContainer.innerHTML= player.render();
 
     let enemy = new Villain(villName);
-    enemy.equipWeapon(new Weapon("Excessive debt"));
+    enemy.equipWeapon(new Weapon(villWeapon));
 
     let villainContainer = document.getElementById("villainContainer");
     villainContainer.innerHTML= enemy.render();

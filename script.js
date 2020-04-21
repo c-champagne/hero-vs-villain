@@ -21,21 +21,48 @@
 let heroAttack = document.getElementById("heroAttack");
 let villainAttack = document.getElementById("villainAttack");
 
+function fightComment() {
+    let commentNum = Math.floor(Math.random() * 7);
+    let fightMessages = [
+        "Not the face!",
+        "Ooo, that's gotta hurt!",
+        "A good shot!",
+        "A direct hit!",
+        "Bam!",
+        "Pow!",
+        "What a hit!",
+    ];
+    document.getElementById("messageContainer").innerHTML = `<h1>${fightMessages[commentNum]}</h1>`;
+
+}
+
+
 heroAttack.addEventListener("click", function () {
     player.attack(enemy);
     var villainHealth = enemy.health;
     document.getElementById("villainHealth").innerHTML=`<h3>Health: ${villainHealth}</h3>`;
-    if (enemy.health <= 0) {
-        document.getElementById("messageContainer").innerHTML = `<h1>Congratulations!  Your hero won!</h1>`;
+    fightComment();
+    if (player.health <= 0) {
+        document.getElementById("messageContainer").innerHTML = `<h1>Your hero is too weak to fight!</h1>`;
+        document.getElementById("villainHealth").innerHTML=`<h3>Health: Unharmed! </h3>`;
     }
-
+    else if (enemy.health <= 0) {
+        document.getElementById("messageContainer").innerHTML = `<h1>Congratulations!  Your hero won!</h1>`;
+        document.getElementById("villainHealth").innerHTML=`<h3>Health: Defeated! </h3>`;
+    }
 })
 
 villainAttack.addEventListener("click", function() {
     enemy.attack(player);
     var heroHealth = player.health;
     document.getElementById("playerHealth").innerHTML=`<h3>Health: ${heroHealth}</h3>`;
-    if (player.health <= 0) {
-        document.getElementById("messageContainer").innerHTML = `<h1> Oh no!  Evil has won!</h1>`;
+    fightComment();
+    if (enemy.health <= 0) {
+        document.getElementById("messageContainer").innerHTML = `<h1>The villian is too weak to fight!</h1>`;
+        document.getElementById("playerHealth").innerHTML=`<h3>Health: Unharmed! </h3>`;
+    }
+    else if (player.health <= 0) {
+        document.getElementById("messageContainer").innerHTML = `<h1> The villain has won!</h1>`;
+        document.getElementById("playerHealth").innerHTML=`<h3>Health: Defeated! </h3>`;
     }
 })
